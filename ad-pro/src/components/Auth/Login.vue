@@ -32,10 +32,26 @@
 					<v-btn 
 					color="primary"
 					@click="onSubmit"
-					:disabled="!valid"
-					>Login</v-btn>
+					:loading="loading"
+					:disabled="!valid || loading">
+						Login
+					</v-btn>
+
 				</v-card-actions>
 			</v-card>
+			<template v-if="error">
+			<v-snackbar
+				:timeout="5000"
+				:multi-line="true"
+				color="error"
+				@input="closeError"
+				:value="true" >
+				{{ error }}
+				<v-btn text dark @click.native="closeError">Close</v-btn>
+			</v-snackbar>
+			</template>
+
+
 		</v-flex>
 		</v-layout> 
 	</v-container>
@@ -58,13 +74,32 @@ export default {
 			]
 		} 	
 	},
+	computed: {
+		loading() {
+			return this.$store.getters.loading
+		},
+		error () {
+			return this.$store.getters.error
+		}
+	},
 	methods: {
 		onSubmit(){
-			const user = {
-				email: this.email,
-				password: this.password
+			if (this.$refs.form.validate()){
+				const user = {
+					email: this.email,
+					password: this.password
+				}
+				this.$store.dispatch('loginUser', user)
+				.then(() => {
+					this.$router.push("/")
+				})
+				.catch((err) => {
+					console.log(err.message)
+				})
 			}
-			console.log(user)
+		},
+		closeError () {
+			this.$store.dispatch('clearError')
 		}
 	}
 } 
