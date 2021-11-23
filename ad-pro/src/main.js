@@ -5,8 +5,8 @@ import vuetify from './plugins/vuetify'
 import router from './router/index'
 import store from './store'
 import fb from 'firebase'
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+//import { initializeApp } from "firebase/app";
+//import { getAnalytics } from "firebase/analytics";
 
 Vue.use(Router)
 Vue.config.productionTip = false
