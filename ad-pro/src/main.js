@@ -31,6 +31,17 @@ new Vue({
   // Initialize Firebase
   fb.initializeApp(firebaseConfig);
   fb.analytics();
+  fb.auth().onAuthStateChanged(user => {
+    //здесь можно обновить пользователя в store
+    console.log(user)
+  })
+  fb.auth().onAuthStateChanged(user => {
+    if (user) {
+      this.$store.dispatch('autoLoginUser', user)
+    }
+ })
+
+
   //const app = initializeApp(firebaseConfig);
   //getAnalytics(app);
 }

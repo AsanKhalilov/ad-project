@@ -100,7 +100,18 @@ export default {
 		},
 		closeError () {
 			this.$store.dispatch('clearError')
+		},
+		onLogout () {
+			this.$store.dispatch('logoutUser')
+			this.$router.push("/")
 		}
+	},
+	created () {
+		if (this.$route.query['loginError']) {
+		this.$store.dispatch('setError','Please login to 	access this page')
 	}
+	
+}
+
 } 
 </script>
