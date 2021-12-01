@@ -31,13 +31,14 @@ new Vue({
   // Initialize Firebase
   fb.initializeApp(firebaseConfig);
   fb.analytics();
-  fb.auth().onAuthStateChanged(user => {
+  //fb.auth().onAuthStateChanged(user => {
     //здесь можно обновить пользователя в store
-    console.log(user)
-  })
+    //console.log(user)
+  //});
   fb.auth().onAuthStateChanged(user => {
     if (user) {
-      this.$store.dispatch('autoLoginUser', user)
+      console.log(`Смотрим что мы получили: ${user.uid}`)
+      this.$store.dispatch('autoLoginUser', user.uid)
     }
  })
 

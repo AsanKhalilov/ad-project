@@ -29,19 +29,19 @@ export default {
                     src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
                     id:"4"
                 }
-            ]},
-            mutations: {
-                createAd(state, payload){
-                    state.ads.push(payload)
-                }
-            },
-            actions: {
-                createAd({commit},payload){
-                    payload.id = Math.random()
-                    commit('createAd', payload)
-                }
-            },
-        
+            ]
+    },
+    mutations: {
+        createAd(state, payload){
+            state.ads.push(payload)
+        }
+    },
+    actions: {
+        createAd({commit},payload){
+            payload.id = Math.random()
+            commit('createAd', payload)
+        }
+    },   
 	getters: {
 		ads(state) {
 			return state.ads
