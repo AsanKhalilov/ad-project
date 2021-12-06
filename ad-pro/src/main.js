@@ -42,8 +42,9 @@ new Vue({
     }
  })
 
-
   //const app = initializeApp(firebaseConfig);
   //getAnalytics(app);
+
+  this.$store.dispatch('fetchAds')
 }
 }).$mount('#app')
