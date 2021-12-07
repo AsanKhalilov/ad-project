@@ -72,6 +72,8 @@ export default {
                 payload.id
             )
               const fbValue = await fb.database().ref('ads').push(newAd)
+              console.log ("bbbb")
+              console.log (fbValue.key)
               commit('setLoading', false)
               commit('createAd', {
                 ...newAd,
