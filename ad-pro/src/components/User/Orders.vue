@@ -9,7 +9,7 @@
 					indeterminate
 				></v-progress-circular>
 			</v-flex>
-			<v-flex xs12 sm6 offset-sm3 v-else-if="!loading && orders.length !== 0">
+			<v-flex xs12 sm6 offset-sm3 v-else>
 				<h1 class="text--secondary mb-3 mt-3">Orders</h1>
 				<v-list
 					subheader
@@ -40,9 +40,9 @@
 					</v-list-item>
 				</v-list>
 			</v-flex>
-			<v-flex xs12 sm6 offset-sm3 v-else>
+			<!--<v-flex xs12 sm6 offset-sm3 v-else>
 				<h1 class="text--secondary">You have no orders</h1>
-			</v-flex>
+			</v-flex>-->
 		</v-layout> 
 	</v-container>
 </template>
