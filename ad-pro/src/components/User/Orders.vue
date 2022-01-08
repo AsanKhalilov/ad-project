@@ -66,7 +66,7 @@ export default {
 			return this.$store.getters.loading
 		},
 		orders () {
-			return this.$store.getters.order
+			return this.$store.getters.orders
 		}
 	},
 
